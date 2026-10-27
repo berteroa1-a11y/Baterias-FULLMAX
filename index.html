@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Baterías | FULLMAX</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet: mapa interactivo -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+    <header class="encabezado">
+        <a class="logo" href="#">
+            <span class="logo-icono">⚡</span>
+            <span>BATERÍAS <strong>FULLMAX</strong>
+                <small>ENERGÍA QUE TE MUEVE</small>
+            </span>
+        </a>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#locales">Encontrá tu batería</a>
+        </nav>
+
+        <a class="boton-header" href="#locales">Encontrar un local</a>
+    </header>
+
+    <main>
+        <section class="portada" id="inicio">
+            <div class="portada-contenido">
+                <span class="etiqueta">BATERÍAS PARA TU VEHÍCULO</span>
+
+                <h1>La energía que necesitás para <span>seguir adelante.</span></h1>
+
+                <p>
+                    Encontrá casas de repuestos y comercios de baterías
+                    en toda Argentina. Explorá el mapa y descubrí opciones
+                    cerca de tu ubicación.
+                </p>
+
+                <a href="#locales" class="boton-principal">
+                    Explorar mapa <span>→</span>
+                </a>
+
+                <div class="dato-portada">
+                    <span>📍</span>
+                    <p><strong>En toda Argentina</strong><br>
+                    <small>Buscá comercios por localidad</small></p>
+                </div>
+            </div>
+
+            <div class="portada-visual">
+                <div class="circulo-fondo"></div>
+                <div class="bateria-ilustracion">
+                    <span class="bateria-simbolo">⚡</span>
+                    <div class="bateria-linea"></div>
+                    <strong>FULLMAX</strong>
+                    <small>POWER & PERFORMANCE</small>
+                </div>
+                <div class="burbuja burbuja-arriba">⚡ Potencia</div>
+                <div class="burbuja burbuja-abajo">✓ Confianza</div>
+            </div>
+        </section>
+
+        <section class="beneficios" id="beneficios">
+            <article class="beneficio">
+                <span class="beneficio-icono">📍</span>
+                <div>
+                    <h3>Encontrá locales</h3>
+                    <p>Buscá comercios por ciudad o zona.</p>
+                </div>
+            </article>
+
+            <article class="beneficio">
+                <span class="beneficio-icono">🗺️</span>
+                <div>
+                    <h3>Mapa interactivo</h3>
+                    <p>Acercá, alej á y explorá diferentes lugares.</p>
+                </div>
+            </article>
+
+            <article class="beneficio">
+                <span class="beneficio-icono">🚗</span>
+                <div>
+                    <h3>Más comodidad</h3>
+                    <p>Consultá la ubicación de cada comercio.</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="seccion-mapa" id="locales">
+            <div class="titulo-seccion">
+                <span class="etiqueta">BUSCADOR DE COMERCIOS</span>
+                <h2>Encontrá tu próximo <span>punto de venta</span></h2>
+                <p>Buscá una ciudad de Argentina o utilizá tu ubicación.</p>
+            </div>
+
+            <div class="buscador">
+                <div class="campo-busqueda">
+                    <span>🔎</span>
+                    <input
+                        type="text"
+                        id="busqueda"
+                        placeholder="Ej.: Morteros, Córdoba..."
+                        autocomplete="off"
+                    >
+                    <button id="buscarLugar" type="button">Buscar ciudad</button>
+                </div>
+
+                <button id="miUbicacion" class="boton-ubicacion" type="button">
+                    ◎ Mi ubicación
+                </button>
+            </div>
+
+            <div class="panel-mapa">
+                <div class="mapa-contenedor">
+                    <div id="mapaFullmax"></div>
+                    <div class="mapa-ayuda">Mové el mapa y buscá comercios en esa zona.</div>
+                </div>
+
+                <aside class="panel-resultados">
+                    <div class="resultados-cabecera">
+                        <div>
+                            <h3>Comercios cercanos</h3>
+                            <p id="zonaActual">Morteros, Córdoba</p>
+                        </div>
+                        <span class="contador" id="contador">0</span>
+                    </div>
+
+                    <button id="buscarZona" class="boton-zona" type="button">
+                        Buscar comercios en esta zona
+                    </button>
+
+                    <p id="estado" class="estado">
+                        Preparando el mapa...
+                    </p>
+
+                    <div id="listaComercios" class="lista-comercios">
+                    </div>
+
+                    <p class="nota-datos">
+                        Los datos provienen de OpenStreetMap y pueden estar
+                        incompletos. Confirmá la información con cada comercio.
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="llamada-final">
+            <span>⚡</span>
+            <h2>La energía para llegar más lejos.</h2>
+            <p>Encontrá comercios de baterías y repuestos en tu zona.</p>
+            <a href="#locales" class="boton-principal">Buscar un comercio →</a>
+        </section>
+    </main>
+
+    <footer>
+        <a class="logo logo-footer" href="#">
+            <span class="logo-icono">⚡</span>
+            <span>BATERÍAS <strong>LEO</strong>
+                <small>ENERGÍA QUE TE MUEVE</small>
+            </span>
+        </a>
+
+        <p>© 2026 Baterías FULLMAX. Todos los derechos reservados.</p>
+        <small>Mapa © OpenStreetMap contributors</small>
+    </footer>
+
+    <script src="mapa.js"></script>
+</body>
+</html>
